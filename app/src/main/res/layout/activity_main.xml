@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/relativeLayout">
+
+    <TextView
+        android:id="@+id/triviaTTL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dp"
+        android:text="Trivia Game"
+        android:textSize="35sp"
+        android:textColor="#0392CF"
+        app:fontFamily="@font/amiko_bold" />
+
+
+
+    <com.adefruandta.spinningwheel.SpinningWheelView
+        android:id="@+id/wheel"
+        android:layout_below="@id/triviaTTL"
+        android:layout_centerHorizontal="true"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:wheel_text_size="10sp"
+        app:wheel_arrow_color="@android:color/black"
+        app:wheel_colors="@array/rainbow_dash"
+        app:wheel_stroke_color="@android:color/black"
+        app:wheel_stroke_width="5dp"/>
+
+    <Button
+        android:id="@+id/getQuestionBtn"
+        android:layout_below="@id/wheel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Spin The Wheel!"
+        android:onClick="rotate"
+        android:layout_margin="10dp"
+        android:stateListAnimator="@null"
+        />
+
+    <!-- text size is for nougat and below - they adjust the text but not the text size -->
+
+    <TextView
+        android:id="@+id/questionTTL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/getQuestionBtn"
+        android:layout_marginBottom="5dp"
+        android:alpha="0"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeTextType="uniform"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:fontFamily="@font/amiko_bold" />
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionTTL"
+        android:numColumns="2"
+        android:layout_margin="10dp"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp" />
+    <LinearLayout
+        android:id="@+id/scoreLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/gridView"
+        android:gravity="bottom"
+        android:padding="4dp"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:id="@+id/starIcon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/star_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            app:fontFamily="@font/amiko_bold"
+            android:text="Score:"
+            android:textSize="25sp"/>
+        <TextView
+            android:id="@+id/scoreSum"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            app:fontFamily="@font/amiko_bold"
+            android:text="0"
+            android:layout_marginLeft="5dp"
+            android:textSize="25sp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
